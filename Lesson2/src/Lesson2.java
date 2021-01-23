@@ -27,12 +27,11 @@ public class Lesson2 {
     }
 
     public static double average(int[] array) {
-        int sum = 0;
-        double result = 0;
+        double sum = 0, result = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
-            result = sum / array.length;
         }
+        result = sum / array.length;
         return result;
     }
 
