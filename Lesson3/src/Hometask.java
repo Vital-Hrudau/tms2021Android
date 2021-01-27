@@ -42,14 +42,12 @@ public class Hometask {
      * - if remainder of the division number by both 3 and 5 is zero 0  and - print "foobar" (example of number - 15)
      */
     public static void foobar(int number) {
-        if (number % 3 == 0) {
-            System.out.println("foo");
-        }
-        if (number % 5 == 0) {
-            System.out.println("bar");
-        }
         if (number % 3 == 0 && number % 5 == 0) {
             System.out.println("foobar");
+        } else if (number % 3 == 0) {
+            System.out.println("foo");
+        }else if (number % 5== 0 ) {
+            System.out.println("bar");
         }
     }
 
