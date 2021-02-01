@@ -51,23 +51,4 @@ public class PersonRegistry {
         }
         return people;
     }
-
-    /**
-     * Show good recruits to army (not use)
-     */
-    public List<Person> getHealthyPeople() {
-        List<Person> peoplehp = new LinkedList<>();
-        for (Person person : citizens) {
-            int age = person.getAge();
-            char sex = person.getSex();
-            if (sex == 'm') {
-                if (age >= 18 && age <= 27) {
-                    peoplehp.add(person);
-                }
-            }
-        }
-        return peoplehp;
-    }
-
-
 }
