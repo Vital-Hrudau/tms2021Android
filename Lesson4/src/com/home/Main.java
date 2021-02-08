@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
         PersonRegistry registry;
 
-
         Person konstantin = new Person(25, "Konstantin", 179, 'm',
                 "Повышенное давление, Склероз 2 ст.");
         Address konstantinsAddress = new Address("Belarus", "Vitebsk");
@@ -52,13 +51,37 @@ public class Main {
         Person michael = new Person(37, "Mihail", 190, 'm', "Не годен по возрасту");
         Address michaelsAddress = new Address("Belarus", "Vitebsk");
         michael.setAddress(michaelsAddress);
+        /**
+         * new recruits of military bases:
+         */
+        Person evgeniy = new Person(22, "Evgeniy", 180, 'm', "Отклонений не выявлено");
+        Address evgeniyAddress = new Address("Belarus", "Vitebsk");
+        evgeniy.setAddress(evgeniyAddress);
+
+        Person viktor = new Person(25, "Viktor", 182, 'm', "Отклонений не выявлено");
+        Address viktorAddress = new Address("Belarus", "Minsk");
+        viktor.setAddress(viktorAddress);
+
+        Person nikolay = new Person(25, "Nikolay", 192, 'm', "Отклонений не выявлено");
+        Address nikolayAddress = new Address("Belarus", "Minsk");
+        nikolay.setAddress(nikolayAddress);
 
         registry = new PersonRegistry(new Person[]{gleb, konstantin, oleg, vadim,
-                vito, sasha, elvira, alena, vlad, michael});
+                vito, sasha, elvira, alena, vlad, michael, evgeniy, viktor, nikolay});
+
 
         RecruitOffice office = new RecruitOffice(registry);
+        MilitaryBase militaryBase = new MilitaryBase(office);
+
+        militaryBase.baseStaff.add(nikolay);
+        militaryBase.baseStaff.add(viktor);
+        militaryBase.baseStaff.add(evgeniy);
+        militaryBase.recruitSize = 3;
 
         office.gotoarmy();
+        militaryBase.getMilitaryBase();
+
+
     }
 
 }

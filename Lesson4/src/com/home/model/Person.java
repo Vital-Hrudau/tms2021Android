@@ -11,7 +11,7 @@ public class Person {
     private String health;
 
     /**
-     * add new contructor with new values - char sex, string health (health status of recruit)
+     *new constructor with new values - char sex, string health (health status of recruit)
      */
     public Person(int age, String name, int height, char sex, String health) {
         this.age = age;
