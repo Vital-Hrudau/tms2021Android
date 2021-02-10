@@ -9,10 +9,20 @@ import java.util.Scanner;
 
 public class RecruitOffice {
     PersonRegistry registry;
+    MilitaryBase militaryBase = new MilitaryBase(this);
+
     private String country;
     private String city;
     private String recruitName;
     public List<Person> personListHealth;
+
+    int getSize;
+
+
+    public RecruitOffice(MilitaryBase militaryBase) {
+        this.militaryBase = militaryBase;
+    }
+
 
     public RecruitOffice(PersonRegistry registry) {
         this.registry = registry;
@@ -77,10 +87,17 @@ public class RecruitOffice {
         }
     }
 
+    void getFreeSizeofBases() {
+        System.out.println("Военкомат: необходимо еще пополнить: ");
+        getSize = militaryBase.getSize();
+        System.out.println(getSize);
+
+    }
+
 }
 /**
  * Расширить функционал военкомата
- * - При создании военкомата теперь передавать не только регистратуру,
+ * + При создании военкомата теперь передавать не только регистратуру,
  * но и массив (или список) военных частей, в которые военкомат будет распределять военных.
  * - Добавить метод который посчитает сколько призывников нужно собрать в этот раз
  * (сумма свободных мест во всех частях).

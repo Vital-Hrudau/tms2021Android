@@ -45,7 +45,9 @@ public class MilitaryBase {
             System.out.println("Кол-во свободных мест в части: " + size);
 
 
-        }
+    }
+    public int getSize() {
+        return this.size;
     }
 }
 

@@ -73,6 +73,7 @@ public class Main {
         RecruitOffice office = new RecruitOffice(registry);
         MilitaryBase militaryBase = new MilitaryBase(office);
 
+
         militaryBase.baseStaff.add(nikolay);
         militaryBase.baseStaff.add(viktor);
         militaryBase.baseStaff.add(evgeniy);
@@ -80,6 +81,7 @@ public class Main {
 
         office.gotoarmy();
         militaryBase.getMilitaryBase();
+        office.getFreeSizeofBases();
 
 
     }
