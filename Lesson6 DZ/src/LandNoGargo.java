@@ -5,8 +5,6 @@ public class LandNoGargo extends Land { //легковой наземн
     int passengers;// кол-во пассажиров
     double liters;
     double distance;
-    double kilowatts;
-
 
     void horsepower() {
         Scanner scanner = new Scanner(System.in);
@@ -23,10 +21,6 @@ public class LandNoGargo extends Land { //легковой наземн
         this.liters = (distance * super.consumption) / 100;
     }
 
-    void hpChange() {
-        kilowatts = super.hp * 0.74;
-    }
-
     public LandNoGargo(int hp, int masSpeed, int mass, String brand, int wheels,
                        int consumption, String bodyType, int passengers) {
         super(hp, masSpeed, mass, brand, wheels, consumption);
@@ -36,7 +30,7 @@ public class LandNoGargo extends Land { //легковой наземн
 
 
     public void description() {
-        hpChange();
+        super.hpChange();
         System.out.println("Характеристики объекта (легковой наземный транспорт):");
         System.out.println("Можность (л.с.): " + super.hp + ". Мощность (кВ): " + kilowatts + ". " +
                 "Максимальная скорость(км/ч): " + super.maxSpeed + ". " +
@@ -50,4 +44,19 @@ public class LandNoGargo extends Land { //легковой наземн
     }
 
 
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public int getPassengers() {
+        return passengers;
+    }
+
+    public double getLiters() {
+        return liters;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
 }

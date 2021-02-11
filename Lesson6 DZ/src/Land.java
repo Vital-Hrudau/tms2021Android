@@ -1,4 +1,12 @@
 public class Land extends Transport {
+    public int getWheels() {
+        return wheels;
+    }
+
+    public double getConsumption() {
+        return consumption;
+    }
+
     int wheels;
     double consumption; // л/100 км
 

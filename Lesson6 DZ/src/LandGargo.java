@@ -1,12 +1,8 @@
 import java.util.Scanner;
 
 public class LandGargo extends Land { //грузовой наземн
-    int carrying;// грузоподьемность
-    double kilowatts;
 
-    void hpChange() {
-        kilowatts = super.hp * 0.74;
-    }
+    int carrying;// грузоподьемность
 
     public LandGargo(int hp, int masSpeed, int mass, String brand, int wheels, int consumption, int carrying) {
         super(hp, masSpeed, mass, brand, wheels, consumption);
@@ -14,7 +10,7 @@ public class LandGargo extends Land { //грузовой наземн
     }
 
     public void description() {
-        hpChange();
+        super.hpChange();
         System.out.println("Характеристики объекта (грузовой наземный транспорт):");
         System.out.println("Можность (л.с.): " + super.hp + ". Мощность (кВ): " + kilowatts + ". " +
                 "Максимальная скорость(км/ч): " + super.maxSpeed + ". " +
@@ -35,5 +31,9 @@ public class LandGargo extends Land { //грузовой наземн
         } else {
             System.out.println("Погрузка...Грузовик загружен!");
         }
+    }
+
+    public int getCarrying() {
+        return carrying;
     }
 }
