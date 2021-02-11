@@ -1,6 +1,6 @@
 public class AirMilitary extends Air {
-    boolean catapult; // наличие сист. катапультирования
-    int rockets; // кол-во ракет на борту
+    private boolean catapult; // наличие сист. катапультирования
+    private int rockets; // кол-во ракет на борту
 
     public AirMilitary(int hp, int masSpeed, int mass, String brand, int wingspan, int minStriplength, boolean catapult, int rockets) {
         super(hp, masSpeed, mass, brand, wingspan, minStriplength);
@@ -11,11 +11,13 @@ public class AirMilitary extends Air {
     public void description() {
         super.hpChange();
         System.out.println("Характеристики объекта (воздушный военный транспорт):");
-        System.out.println("Можность (л.с.): " + super.hp + ". Мощность (кВ): " + kilowatts + ". " +
-                "Максимальная скорость(км/ч): " + super.maxSpeed + ". " +
-                "Масса(кг): " + super.mass + ". " +
-                "Марка: " + super.brand + ". " + "\n" +
-                "Система катапультирования: " + this.catapult + ". " +
+        System.out.println("Можность (л.с.): " + getHp() + ". Мощность (кВ): " + getKilowatts() + ". " +
+                "Максимальная скорость(км/ч): " + getMaxSpeed() + ". " +
+                "Масса(кг): " + getMass() + ". " +
+                "Марка: " + getBrand() + ". " + "\n" +
+                "Размах крыльев(м): " + getWingspan() +
+                ". Минимальная длина ВВП(м): " + getMinStriplength() +
+                ". Система катапультирования: " + this.catapult + ". " +
                 "Кол-во ракет на борту: " + this.rockets);
         shoot();
         goCatapult();

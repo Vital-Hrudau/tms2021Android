@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         LandNoGargo landNoGargo = new LandNoGargo(120, 140, 3100, "Volkswagen", 4,
-                14, "", 10);
+                14, "Автобус", 10);
         LandGargo landGargo = new LandGargo(234, 110, 5700, "МАЗ", 4, 23,
                 5000);
         AirPassenger airPassenger = new AirPassenger(500, 740, 22000, "BELL",

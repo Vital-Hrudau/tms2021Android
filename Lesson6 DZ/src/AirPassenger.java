@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class AirPassenger extends Air {
-    int passengers;// кол-во пассажиров
-    boolean isBusiness; // наличие бизнес класса
+    private int passengers;// кол-во пассажиров
+    private boolean isBusiness; // наличие бизнес класса
 
     public AirPassenger(int hp, int masSpeed, int mass, String brand, int wingspan, int minStriplength, int passengers, boolean isBusiness) {
         super(hp, masSpeed, mass, brand, wingspan, minStriplength);
@@ -13,11 +13,13 @@ public class AirPassenger extends Air {
     public void description() {
         super.hpChange();
         System.out.println("Характеристики объекта (воздушный гражданский транспорт):");
-        System.out.println("Можность (л.с.): " + super.hp + ". Мощность (кВ): " + super.kilowatts + ". " +
-                "Максимальная скорость(км/ч): " + super.maxSpeed + ". " +
-                "Масса(кг): " + super.mass + ". " +
-                "Марка: " + super.brand + ". " +
-                "Вместимость пассажиров: " + this.passengers + ". " +
+        System.out.println("Можность (л.с.): " + getHp() + ". Мощность (кВ): " + getKilowatts() + ". " +
+                "Максимальная скорость(км/ч): " + getMaxSpeed() + ". " +
+                "Масса(кг): " + getMass() + ". " +
+                "Марка: " + getBrand() + ". " + "\n" +
+                "Размах крыльев(м): " + getWingspan() +
+                ". Минимальная длина ВВП(м): " + getMinStriplength() +
+                ". Вместимость пассажиров: " + this.passengers + ". " +
                 "Наличие бизнес класса: " + this.isBusiness);
         loadPassengers();
     }

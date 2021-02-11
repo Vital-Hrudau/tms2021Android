@@ -1,9 +1,14 @@
 public class Transport {
-    double hp;// л.с.
-    double maxSpeed;// км\ч
-    int mass;// кг
-    String brand;// марка
-    double kilowatts;
+    private double hp;// л.с.
+    private double maxSpeed;// км\ч
+    private int mass;// кг
+    private String brand;// марка
+
+    public double getKilowatts() {
+        return kilowatts;
+    }
+
+    private double kilowatts;
 
     public Transport(int hp, int masSpeed, int mass, String brand) {
         this.hp = hp;
@@ -11,9 +16,11 @@ public class Transport {
         this.mass = mass;
         this.brand = brand;
     }
-    protected void hpChange(){
+
+    protected void hpChange() {
         kilowatts = hp * 0.74;
     }
+
     public double getHp() {
         return hp;
     }

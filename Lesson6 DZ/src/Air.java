@@ -1,5 +1,5 @@
 public class Air extends Transport {
-    private int wingspan; //размах крыльевp
+    private int wingspan; //размах крыльев
     private int minStriplength; // мин длина ВПП
 
     public Air(int hp, int masSpeed, int mass, String brand, int wingspan, int minStriplength) {

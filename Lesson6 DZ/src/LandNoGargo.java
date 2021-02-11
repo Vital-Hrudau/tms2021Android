@@ -1,43 +1,43 @@
 import java.util.Scanner;
 
 public class LandNoGargo extends Land { //легковой наземн
-    String bodyType;// тип кузова
-    int passengers;// кол-во пассажиров
-    double liters;
-    double distance;
+    private String bodyType;// тип кузова
+    private int passengers;// кол-во пассажиров
+    private double liters;
+    private double distance;
 
     void horsepower() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите время(ч), затраченное на поездку: ");
         double time = scanner.nextDouble();
-        this.distance = super.maxSpeed * time;
+        this.distance = getMaxSpeed() * time;
         consumption();
-        System.out.println("За время " + time + " ч, автомобиль " + super.brand + " двигаясь с максимальной скоростью " +
-                +super.maxSpeed + " км/ч проедет " + distance + "км и израсходует " + liters + " литров топлива");
+        System.out.println("За время " + time + " ч, автомобиль " + getBrand() + " двигаясь с максимальной скоростью " +
+                +getMaxSpeed() + " км/ч проедет " + distance + "км и израсходует " + liters + " литров топлива");
 
     }
 
     private void consumption() {
-        this.liters = (distance * super.consumption) / 100;
+        this.liters = (distance * getConsumption()) / 100;
     }
 
     public LandNoGargo(int hp, int masSpeed, int mass, String brand, int wheels,
                        int consumption, String bodyType, int passengers) {
         super(hp, masSpeed, mass, brand, wheels, consumption);
-        this.bodyType = "Автобус";
-        this.passengers = 10;
+        this.bodyType = bodyType;
+        this.passengers = passengers;
     }
 
 
     public void description() {
         super.hpChange();
         System.out.println("Характеристики объекта (легковой наземный транспорт):");
-        System.out.println("Можность (л.с.): " + super.hp + ". Мощность (кВ): " + kilowatts + ". " +
-                "Максимальная скорость(км/ч): " + super.maxSpeed + ". " +
-                "Масса(кг): " + super.mass + ". " +
-                "Марка: " + super.brand + ". " +
-                "Кол-во колес: " + super.wheels + ". " +
-                "Расход топлива(л/100 км): " + super.consumption + ". " + "\n" +
+        System.out.println("Можность (л.с.): " + getHp() + ". Мощность (кВ): " + getKilowatts() + ". " +
+                "Максимальная скорость(км/ч): " + getMaxSpeed() + ". " +
+                "Масса(кг): " + getMass() + ". " +
+                "Марка: " + getBrand() + ". " +
+                "Кол-во колес: " + getWheels() + ". " +
+                "Расход топлива(л/100 км): " + getConsumption() + ". " + "\n" +
                 "Тип кузова: " + bodyType + ". " +
                 "Кол-во пассажиров: " + passengers);
         horsepower();
