@@ -7,7 +7,7 @@ import com.home.model.Person;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidCountryNameException {
         PersonRegistry registry;
 
         Person konstantin = new Person(25, "Konstantin", 179, 'm',
@@ -71,7 +71,7 @@ public class Main {
 
 
         RecruitOffice office = new RecruitOffice(registry);
-        MilitaryBase militaryBase = new MilitaryBase(office);
+        MilitaryBase militaryBase = office.militaryBase;//new MilitaryBase(office);
 
 
         militaryBase.baseStaff.add(nikolay);
@@ -79,9 +79,17 @@ public class Main {
         militaryBase.baseStaff.add(evgeniy);
         militaryBase.recruitSize = 3;
 
-        office.gotoarmy();
+        try {
+            office.gotoarmy();
+        } catch (InvalidCountryNameException e) {
+            e.printStackTrace();
+        }
+        finally {
+            office.gotoarmy();
+        }
         militaryBase.getMilitaryBase();
         office.getFreeSizeofBases();
+        office.addRecruitsToBase();
 
 
     }

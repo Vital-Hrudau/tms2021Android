@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MilitaryBase {
-    public int recruitSizeMax = 5;
+    public int recruitSizeMax = 8;
     public int recruitSize;
     public String recruit;
     public List<Person> baseStaff = new LinkedList<>();
+    int size;
 
     RecruitOffice recruitOffice;
 
@@ -19,16 +20,23 @@ public class MilitaryBase {
 
     }
 
-    public void getMilitaryBase() {
-        System.out.println("Максимальное количество служащих в военной части: " + recruitSizeMax);
-        addtoBase();
+    public MilitaryBase() {
+
     }
 
-    public void addtoBase() {
+
+    public void getMilitaryBase() {
+        System.out.println("Максимальное количество служащих в военной части: " + recruitSizeMax);
+        addtoBase(size);
+    }
+
+
+    public int addtoBase(int size) {
+        boolean order;
         if (recruitSize > recruitSizeMax) {
             System.out.println("Часть переполнена");
         } else {
-            System.out.println("Введите имя призывника, которого Вы хотите добавить:");
+            System.out.println("Внедрение призывника вручную.Введите имя призывника, которого Вы хотите добавить:");
             Scanner scanner = new Scanner(System.in);
             recruit = scanner.nextLine();
             for (int i = 0; i < recruitOffice.personListHealth.size(); i++) {
@@ -41,23 +49,13 @@ public class MilitaryBase {
                 System.out.println(baseStaff.get(c).getName());
             }
             recruitSize++;
-            int size = recruitSizeMax - recruitSize;
-            System.out.println("Кол-во свободных мест в части: " + size);
+            this.size = recruitSizeMax - recruitSize;
+            System.out.println("Кол-во свободных мест в части: " + this.size);
 
-
+        }
+        return size;
     }
-    public int getSize() {
+    public int getSize () {
         return this.size;
     }
 }
-
-
-/**
- * + При создании части нужно указать максимально количество служащих в военной части.
- * + Сделать возможным добавление в военную часть нового служащего
- * +(но если кол-во служащих уже максимальное - выводить сообщение что часть переполнена)
- * - ЗАДАЧА СО ЗВЕЗДОЧКОЙ: при добавлении служащего проверить не служит ли он уже в этой части
- * (совпадение по имени, росту, возрасту либо совпадение по ссылке),если служит - не добавлять дважды
- * + Сделать возможным получение информации о том сколько свободных мест есть в части
- * + Добавить метод который выведет всех служащих части.
- **/
