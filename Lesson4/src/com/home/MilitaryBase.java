@@ -7,13 +7,26 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MilitaryBase {
-    public int recruitSizeMax = 8;
-    public int recruitSize;
-    public String recruit;
-    public List<Person> baseStaff = new LinkedList<>();
-    int size;
+    private int recruitSizeMax = 8;
+
+
+
+    private int recruitSize;
+    private String recruit;
+    private List<Person> baseStaff = new LinkedList<>();
+    private int size;
 
     RecruitOffice recruitOffice;
+    public void setRecruitSize(int recruitSize) {
+        this.recruitSize = recruitSize;
+    }
+    public int getRecruitSize() {
+        return recruitSize;
+    }
+
+    public List<Person> getBaseStaff() {
+        return baseStaff;
+    }
 
     public MilitaryBase(RecruitOffice recruitOffice) {
         this.recruitOffice = recruitOffice;
@@ -55,7 +68,8 @@ public class MilitaryBase {
         }
         return size;
     }
-    public int getSize () {
+
+    public int getSize() {
         return this.size;
     }
 }

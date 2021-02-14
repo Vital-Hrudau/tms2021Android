@@ -12,7 +12,7 @@ public class ToshibaHand implements IHand{
 
     @Override
     public void upHand() {
-
+        System.out.println("Машет рукой от Тошиба");
     }
 
     @Override

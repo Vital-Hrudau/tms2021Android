@@ -30,9 +30,9 @@ public class Run {
         ToshibaHand toshibaHand = new ToshibaHand();
         ToshibaLeg toshibaLeg = new ToshibaLeg();
 
-        Robot1 robot1 = new Robot1(samsungHand, samsungHead, sonyLeg);
-        Robot2 robot2 = new Robot2(toshibaHand, toshibaHead, sonyLeg);
-        Robot3 robot3 = new Robot3(sonyHand, sonyHead, toshibaLeg);
+        Robot robot1 = new Robot(samsungHand, samsungHead, sonyLeg);
+        Robot robot2 = new Robot(toshibaHand, toshibaHead, sonyLeg);
+        Robot robot3 = new Robot(sonyHand, sonyHead, toshibaLeg);
         robot1.action();
         robot2.action();
         robot3.action();

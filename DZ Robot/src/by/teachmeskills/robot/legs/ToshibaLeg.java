@@ -12,7 +12,7 @@ public class ToshibaLeg implements ILeg{
 
     @Override
     public void step() {
-
+        System.out.println("Шагает ногой Тошиба");
     }
 
     @Override

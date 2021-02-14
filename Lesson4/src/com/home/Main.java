@@ -74,10 +74,10 @@ public class Main {
         MilitaryBase militaryBase = office.militaryBase;//new MilitaryBase(office);
 
 
-        militaryBase.baseStaff.add(nikolay);
-        militaryBase.baseStaff.add(viktor);
-        militaryBase.baseStaff.add(evgeniy);
-        militaryBase.recruitSize = 3;
+        militaryBase.getBaseStaff().add(nikolay);
+        militaryBase.getBaseStaff().add(viktor);
+        militaryBase.getBaseStaff().add(evgeniy);
+        militaryBase.setRecruitSize(3);
 
         try {
             office.gotoarmy();

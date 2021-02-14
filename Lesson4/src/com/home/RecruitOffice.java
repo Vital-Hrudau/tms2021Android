@@ -95,27 +95,27 @@ public class RecruitOffice {
         System.out.println("Военкомат добавил " + getSize + " призывников");
         switch (getSize) {
             case 1:
-                militaryBase.baseStaff.add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
                 break;
             case 2:
-                militaryBase.baseStaff.add(personListHealth.get(1));
-                militaryBase.baseStaff.add(personListHealth.get(2));
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(2));
                 break;
             case 3:
-                militaryBase.baseStaff.add(personListHealth.get(1));
-                militaryBase.baseStaff.add(personListHealth.get(2));
-                militaryBase.baseStaff.add(personListHealth.get(3));
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(2));
+                militaryBase.getBaseStaff().add(personListHealth.get(3));
                 break;
             case 4:
-                militaryBase.baseStaff.add(personListHealth.get(1));
-                militaryBase.baseStaff.add(personListHealth.get(2));
-                militaryBase.baseStaff.add(personListHealth.get(3));
-                militaryBase.baseStaff.add(personListHealth.get(4));
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(2));
+                militaryBase.getBaseStaff().add(personListHealth.get(3));
+                militaryBase.getBaseStaff().add(personListHealth.get(4));
                 break;
         }
         System.out.println("Новый состав военной части:");
-        for (int a = 0; a < militaryBase.baseStaff.size(); a++) {
-            System.out.println(militaryBase.baseStaff.get(a).getName());
+        for (int a = 0; a < militaryBase.getBaseStaff().size(); a++) {
+            System.out.println(militaryBase.getBaseStaff().get(a).getName());
         }
     }
 

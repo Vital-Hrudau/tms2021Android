@@ -12,7 +12,7 @@ public class SonyHand implements IHand{
 
     @Override
     public void upHand() {
-
+        System.out.println("Машет рукой от Сони");
     }
 
     @Override
