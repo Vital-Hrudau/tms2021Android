@@ -30,11 +30,14 @@ public class Run {
         ToshibaHand toshibaHand = new ToshibaHand();
         ToshibaLeg toshibaLeg = new ToshibaLeg();
 
-        Robot robot1 = new Robot(samsungHand, samsungHead, sonyLeg);
-        Robot robot2 = new Robot(toshibaHand, toshibaHead, sonyLeg);
-        Robot robot3 = new Robot(sonyHand, sonyHead, toshibaLeg);
+        Robot robot1 = new Robot(samsungHead, samsungHand, sonyLeg);
+        Robot robot2 = new Robot(toshibaHead, toshibaHand, sonyLeg);
+        Robot robot3 = new Robot(sonyHead, sonyHand, toshibaLeg);
+        System.out.println("Первый робот:");
         robot1.action();
+        System.out.println("Второй робот:");
         robot2.action();
+        System.out.println("Третий робот:");
         robot3.action();
         if (robot1.getPrice() > robot2.getPrice() && robot1.getPrice() > robot3.getPrice()) {
             System.out.println("Самый дорогой робот #1");

@@ -1,16 +1,8 @@
 package by.teachmeskills.robot;
 
 import by.teachmeskills.robot.hands.IHand;
-import by.teachmeskills.robot.hands.SamsungHand;
-import by.teachmeskills.robot.hands.SonyHand;
-import by.teachmeskills.robot.hands.ToshibaHand;
 import by.teachmeskills.robot.heads.IHead;
-import by.teachmeskills.robot.heads.SamsungHead;
-import by.teachmeskills.robot.heads.SonyHead;
-import by.teachmeskills.robot.heads.ToshibaHead;
 import by.teachmeskills.robot.legs.ILeg;
-import by.teachmeskills.robot.legs.SonyLeg;
-import by.teachmeskills.robot.legs.ToshibaLeg;
 
 public class Robot implements IRobot {
     private IHead head;
@@ -24,25 +16,6 @@ public class Robot implements IRobot {
     }
 
     public Robot() {
-    }
-
-    public Robot(SonyHand sonyHand, SonyHead sonyHead, ToshibaLeg toshibaLeg) {
-        this.hand = sonyHand;
-        this.head = sonyHead;
-        this.leg = toshibaLeg;
-
-    }
-
-    public Robot(ToshibaHand toshibaHand, ToshibaHead toshibaHead, SonyLeg sonyLeg) {
-        this.hand = toshibaHand;
-        this.head = toshibaHead;
-        this.leg = sonyLeg;
-    }
-
-    public Robot(SamsungHand samsungHand, SamsungHead samsungHead, SonyLeg sonyLeg) {
-        this.hand = samsungHand;
-        this.head = samsungHead;
-        this.leg = sonyLeg;
     }
 
     public IHead getHead() {
