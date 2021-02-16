@@ -9,8 +9,11 @@ import by.teachmeskills.robot.heads.ToshibaHead;
 import by.teachmeskills.robot.legs.SonyLeg;
 import by.teachmeskills.robot.legs.ToshibaLeg;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Run {
-    private int price;
+    public static List<Robot> robots = new LinkedList();
 
     public static void main(String[] args) {
         /**
@@ -21,6 +24,7 @@ public class Run {
          У всех роботов вызовите метод action.
          Среди 3-х роботов найдите самого дорогого.
          */
+        GetMaxPriceofRobot getMaxPriceofRobot = new GetMaxPriceofRobot();
         SamsungHand samsungHand = new SamsungHand();
         SamsungHead samsungHead = new SamsungHead();
         SonyLeg sonyLeg = new SonyLeg();
@@ -33,21 +37,15 @@ public class Run {
         Robot robot1 = new Robot(samsungHead, samsungHand, sonyLeg);
         Robot robot2 = new Robot(toshibaHead, toshibaHand, sonyLeg);
         Robot robot3 = new Robot(sonyHead, sonyHand, toshibaLeg);
+        robots.add(robot1);
+        robots.add(robot2);
+        robots.add(robot3);
         System.out.println("Первый робот:");
         robot1.action();
         System.out.println("Второй робот:");
         robot2.action();
         System.out.println("Третий робот:");
         robot3.action();
-        if (robot1.getPrice() > robot2.getPrice() && robot1.getPrice() > robot3.getPrice()) {
-            System.out.println("Самый дорогой робот #1");
-        }
-        if (robot2.getPrice() > robot1.getPrice() && robot2.getPrice() > robot3.getPrice()) {
-            System.out.println("Самый дорогой робот #2");
-        }
-        if (robot3.getPrice() > robot1.getPrice() && robot3.getPrice() > robot2.getPrice()) {
-            System.out.println("Самый дорогой робот #3");
-        }
-
+        getMaxPriceofRobot.calcprice();
     }
 }
