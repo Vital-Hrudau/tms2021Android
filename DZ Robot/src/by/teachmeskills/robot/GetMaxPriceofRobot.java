@@ -9,6 +9,6 @@ public class GetMaxPriceofRobot {
             System.out.println(robot.getPrice());
             max = Math.max(max, robot.getPrice());
         }
-        System.out.println("Самый дорогой робот стоит: " + max);
+        System.out.println("Самый дорогой робот стоит:  " + max);
     }
 }

@@ -33,7 +33,6 @@ public class Run {
         ToshibaHead toshibaHead = new ToshibaHead();
         ToshibaHand toshibaHand = new ToshibaHand();
         ToshibaLeg toshibaLeg = new ToshibaLeg();
-
         Robot robot1 = new Robot(samsungHead, samsungHand, sonyLeg);
         Robot robot2 = new Robot(toshibaHead, toshibaHand, sonyLeg);
         Robot robot3 = new Robot(sonyHead, sonyHand, toshibaLeg);
