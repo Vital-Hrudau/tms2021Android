@@ -13,9 +13,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Run {
-    public static List<Robot> robots = new LinkedList();
 
     public static void main(String[] args) {
+        List<Robot> robots = new LinkedList();
+        ;
         /**
          Создать по 3 реализации(Sony, Toshiba, Samsung) каждой запчасти(IHead, IHand, ILeg)
          Класс SonyHead является примером реализацией головы от Sony.
@@ -45,6 +46,6 @@ public class Run {
         robot2.action();
         System.out.println("Третий робот:");
         robot3.action();
-        getMaxPriceofRobot.calcprice();
+        getMaxPriceofRobot.calcprice(robots);
     }
 }
