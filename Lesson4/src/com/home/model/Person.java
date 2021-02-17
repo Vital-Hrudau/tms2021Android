@@ -1,24 +1,31 @@
 package com.home.model;
 
+import javax.naming.InvalidNameException;
 import java.util.Random;
 
 public class Person {
     private Address address;
     private int age;
     private String name;
+    private String surname;
     private int height;
     private char sex;
     private String health;
 
     /**
-     *new constructor with new values - char sex, string health (health status of recruit)
+     * new constructor with new values - char sex, string health (health status of recruit), surname
      */
-    public Person(int age, String name, int height, char sex, String health) {
+    public Person(int age, String name, String surname, int height, char sex, String health) throws InvalidNameException {
         this.age = age;
-        this.name = name;
+        this.name = name.trim();
+        this.surname = surname.trim();
         this.height = height;
         this.sex = sex;
         this.health = health;
+        stringChanger();
+        if (name.contains(" ") || surname.contains(" ")) {
+            throw new InvalidNameException("В имени/фамилии присутствует пробел!");
+        }
     }
 
     public Person() {
@@ -96,4 +103,18 @@ public class Person {
     public void setHealth(String health) {
         this.health = health;
     }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    private void stringChanger() {
+        this.name = this.name.substring(0, 1).toUpperCase() + this.name.substring(1).toLowerCase();
+        this.surname = this.surname.substring(0, 1).toUpperCase() + this.surname.substring(1).toLowerCase();
+    }
+
 }

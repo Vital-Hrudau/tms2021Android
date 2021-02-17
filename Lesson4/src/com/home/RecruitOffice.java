@@ -61,7 +61,7 @@ public class RecruitOffice {
             char sex = personListHealth.get(i).getSex();
             if (sex == 'm') {
                 if (age >= 18 && age <= 27) {
-                    System.out.println(personListHealth.get(i).getName());
+                    System.out.println(personListHealth.get(i).getName() + " " + personListHealth.get(i).getSurname());
                 }
             }
 
@@ -69,46 +69,57 @@ public class RecruitOffice {
         return personListHealth;
     }
 
-    void gotoarmy() {
+    void gotoarmy() throws InvalidCountryNameException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Программа поиска призывников.");
         System.out.println("Введите страну поиска (Belarus): ");
         country = scanner.nextLine();
         if (!country.equals("Belarus")) {
-            System.out.println("Ошибка ввода данных.Попробуйте ещё раз.");
-            gotoarmy();
+            throw new InvalidCountryNameException("Ошибка ввода данных.Попробуйте ещё раз.");
         }
         if (country.equals("Belarus")) {
             System.out.println("Введите город поиска (Minsk или Vitebsk): ");
             city = scanner.nextLine();
             System.out.println("Фильтр. Cтрана: " + country + ". Город: " + city + ".");
-            System.out.println("Список годных к срочной военной службе:");
+            System.out.println("Список годных к срочной военной службе (имена):");
             getHealthyPeople();
         }
     }
 
     void getFreeSizeofBases() {
-        System.out.println("Военкомат: необходимо еще пополнить: ");
         getSize = militaryBase.getSize();
-        System.out.println(getSize);
+        System.out.println("Военкомат: необходимо еще пополнить: " + getSize);
+    }
 
+    void addRecruitsToBase() {
+        System.out.println("Военкомат добавил " + getSize + " призывников");
+        switch (getSize) {
+            case 1:
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                break;
+            case 2:
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(2));
+                break;
+            case 3:
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(2));
+                militaryBase.getBaseStaff().add(personListHealth.get(3));
+                break;
+            case 4:
+                militaryBase.getBaseStaff().add(personListHealth.get(1));
+                militaryBase.getBaseStaff().add(personListHealth.get(2));
+                militaryBase.getBaseStaff().add(personListHealth.get(3));
+                militaryBase.getBaseStaff().add(personListHealth.get(4));
+                break;
+        }
+        System.out.println("Новый состав военной части:");
+        for (int a = 0; a < militaryBase.getBaseStaff().size(); a++) {
+            System.out.println(militaryBase.getBaseStaff().get(a).getName() + " " + militaryBase.getBaseStaff().get(a).getSurname());
+        }
     }
 
 }
-/**
- * Расширить функционал военкомата
- * + При создании военкомата теперь передавать не только регистратуру,
- * но и массив (или список) военных частей, в которые военкомат будет распределять военных.
- * - Добавить метод который посчитает сколько призывников нужно собрать в этот раз
- * (сумма свободных мест во всех частях).
- * - Изменить метод военкомата getPeople (или getHealthyPeople, у каждого из вас по своему)
- * - после вычисления здоровых людей распределить их по частям любым удобным вам способом.
- * Если все части заполнены (призывников оказалось больше чем места в частях) - вывести соответствующее сообщение.
- * <p>
- * На данном этапе реализации допускать что один человек может служить в разных частях
- * (и если не выполнять задачу со звездочкой то допустить что одного и того же человека
- * можно дважды добавить в одну часть)
- */
 
 
 
