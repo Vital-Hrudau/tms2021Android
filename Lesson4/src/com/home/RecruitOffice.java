@@ -61,7 +61,7 @@ public class RecruitOffice {
             char sex = personListHealth.get(i).getSex();
             if (sex == 'm') {
                 if (age >= 18 && age <= 27) {
-                    System.out.println(personListHealth.get(i).getName() + " " + personListHealth.get(i).getSurname());
+                    System.out.println(personListHealth.get(i).getName()+ " " + personListHealth.get(i).getSurname());
                 }
             }
 
@@ -115,7 +115,7 @@ public class RecruitOffice {
         }
         System.out.println("Новый состав военной части:");
         for (int a = 0; a < militaryBase.getBaseStaff().size(); a++) {
-            System.out.println(militaryBase.getBaseStaff().get(a).getName() + " " + militaryBase.getBaseStaff().get(a).getSurname());
+            System.out.println(militaryBase.getBaseStaff().get(a).getName());
         }
     }
 

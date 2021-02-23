@@ -1,5 +1,7 @@
 package com.home.model;
 
+import com.home.InvalidNameSurnameException;
+
 import javax.naming.InvalidNameException;
 import java.util.Random;
 
@@ -15,7 +17,7 @@ public class Person {
     /**
      * new constructor with new values - char sex, string health (health status of recruit), surname
      */
-    public Person(int age, String name, String surname, int height, char sex, String health) throws InvalidNameException {
+    public Person(int age, String name, String surname, int height, char sex, String health) throws InvalidNameSurnameException {
         this.age = age;
         this.name = name.trim();
         this.surname = surname.trim();
@@ -23,9 +25,6 @@ public class Person {
         this.sex = sex;
         this.health = health;
         stringChanger();
-        if (name.contains(" ") || surname.contains(" ")) {
-            throw new InvalidNameException("В имени/фамилии присутствует пробел!");
-        }
     }
 
     public Person() {
@@ -112,9 +111,12 @@ public class Person {
         this.surname = surname;
     }
 
-    private void stringChanger() {
-        this.name = this.name.substring(0, 1).toUpperCase() + this.name.substring(1).toLowerCase();
-        this.surname = this.surname.substring(0, 1).toUpperCase() + this.surname.substring(1).toLowerCase();
+    private void stringChanger() throws InvalidNameSurnameException {
+        name = this.name.substring(0, 1).toUpperCase() + this.name.substring(1).toLowerCase();
+        surname = this.surname.substring(0, 1).toUpperCase() + this.surname.substring(1).toLowerCase();
+        if (name.contains(" ") || surname.contains(" ")) {
+            throw new InvalidNameSurnameException("В имени/фамилии присутствует пробел!");
+        }
     }
 
 }
