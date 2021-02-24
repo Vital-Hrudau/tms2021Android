@@ -6,6 +6,7 @@ import com.home.model.Person;
 
 public class Main {
 
+
     public static void main(String[] args) throws InvalidCountryNameException, InvalidNameSurnameException {
         PersonRegistry registry;
         try {
