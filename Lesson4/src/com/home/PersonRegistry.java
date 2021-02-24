@@ -51,12 +51,4 @@ public class PersonRegistry {
         }
         return people;
     }
-
-    public void stringsControl() {
-        for (Person person : citizens) {
-            if(person.getName().contains(" ") || person.getSurname().contains(" ")){
-                //System.out.println("exception");
-            }
-        }
-    }
 }

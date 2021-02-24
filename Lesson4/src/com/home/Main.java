@@ -71,7 +71,7 @@ public class Main {
 
             RecruitOffice office = new RecruitOffice(registry);
             MilitaryBase militaryBase = office.militaryBase;
-            registry.stringsControl();
+            //registry.stringsControl();
 
 
             militaryBase.getBaseStaff().add(nikolay);

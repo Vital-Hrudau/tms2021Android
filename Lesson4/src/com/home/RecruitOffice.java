@@ -61,7 +61,7 @@ public class RecruitOffice {
             char sex = personListHealth.get(i).getSex();
             if (sex == 'm') {
                 if (age >= 18 && age <= 27) {
-                    System.out.println(personListHealth.get(i).getName()+ " " + personListHealth.get(i).getSurname());
+                    System.out.println(personListHealth.get(i).getName() + " " + personListHealth.get(i).getSurname());
                 }
             }
 
@@ -73,13 +73,15 @@ public class RecruitOffice {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Программа поиска призывников.");
         System.out.println("Введите страну поиска (Belarus): ");
-        country = scanner.nextLine();
+        country = "Belarus";//чтоб не вводить по 100500 раз
+        //country = scanner.nextLine();
         if (!country.equals("Belarus")) {
             throw new InvalidCountryNameException("Ошибка ввода данных.Попробуйте ещё раз.");
         }
         if (country.equals("Belarus")) {
             System.out.println("Введите город поиска (Minsk или Vitebsk): ");
-            city = scanner.nextLine();
+            //city = scanner.nextLine();
+            city = "Minsk";
             System.out.println("Фильтр. Cтрана: " + country + ". Город: " + city + ".");
             System.out.println("Список годных к срочной военной службе (имена):");
             getHealthyPeople();
