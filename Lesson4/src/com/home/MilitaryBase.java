@@ -2,6 +2,7 @@ package com.home;
 
 import com.home.model.Person;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,16 +11,17 @@ public class MilitaryBase {
     private int recruitSizeMax = 8;
 
 
-
     private int recruitSize;
     private String recruit;
     private List<Person> baseStaff = new LinkedList<>();
     private int size;
 
     RecruitOffice recruitOffice;
+
     public void setRecruitSize(int recruitSize) {
         this.recruitSize = recruitSize;
     }
+
     public int getRecruitSize() {
         return recruitSize;
     }
@@ -71,5 +73,15 @@ public class MilitaryBase {
 
     public int getSize() {
         return this.size;
+    }
+
+    public void getRecruitsNameSurname() {
+        System.out.println("Сортированный список служащих:");
+        baseStaff.sort(Comparator.comparing(Person::getSurname));
+        int p = 0;
+        for (int i = 0; i < baseStaff.size(); i++) {
+            p++;
+            System.out.println(p + "." + baseStaff.get(i).getSurname() + " " + baseStaff.get(i).getName());
+        }
     }
 }
