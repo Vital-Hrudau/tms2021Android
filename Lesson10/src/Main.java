@@ -1,6 +1,3 @@
-import java.util.Comparator;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         try {
@@ -14,13 +11,13 @@ public class Main {
             shop.getShop().add(0, pr2);
             shop.getShop().add(0, pr3);
             shop.getShop().add(0, pr4);
-            shop.getShop().add(0, pr5);
 
+            shop.addProduct(pr5);
             shop.sortPrice(shop);
-            shop.removeProduct();
-            shop.editProduct();
+            shop.removeProduct(0);
+            shop.editProduct(pr2);
             shop.showAllProducts(shop);
-        } catch (InvalidProductId ex) {
+        } catch (InvalidProductId | ProductAlreadyExist ex) {
             ex.printStackTrace();
         }
     }

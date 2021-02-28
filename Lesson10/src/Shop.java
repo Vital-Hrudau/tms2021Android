@@ -21,11 +21,16 @@ public class Shop {
     }
 
     public void addProduct(Product product) throws ProductAlreadyExist {
+        int id = product.getId();
+        boolean have = false;
         for (int i = 0; i < shop.size(); i++) {
-            if (product.getId() == shop.get(i).getId()) {
+            if (shop.get(i).getId() == id) {
+                have = true;
                 throw new ProductAlreadyExist("Товар с таким id уже существует");
-            } else shop.add(product);
-            break;
+            }
+        }
+        if (!have) {
+            shop.add(0, product);
         }
     }
 
@@ -37,9 +42,7 @@ public class Shop {
         return shop;
     }
 
-    public void removeProduct() throws InvalidProductId {
-        System.out.println("Введите id товара, который хотите удалить: ");
-        int id = scanner.nextInt();
+    public void removeProduct(int id) throws InvalidProductId {
         boolean delete = false;
         for (int i = 0; i < shop.size(); i++) {
             if (shop.get(i).getId() == id) {
@@ -54,19 +57,16 @@ public class Shop {
         System.out.println("Размер списка товаров: " + shop.size());
     }
 
-    public void editProduct() throws InvalidProductId {
-        System.out.println("Введите id товара, который хотите редактировать: ");
-        int id = scanner.nextInt();
+    public void editProduct(Product p) throws InvalidProductId {
         boolean edit = false;
         for (int i = 0; i < shop.size(); i++) {
-            if (shop.get(i).getId() == id) {
+            if (shop.get(i) == p) {
                 edit = true;
                 String name = shop.get(i).getName();
                 String type = shop.get(i).getType();
                 System.out.println("Искомый товар: " + name + ".Тип: " + type);
                 System.out.println("Введите новое название: ");
                 String newName = scanner.nextLine();
-                newName = scanner.nextLine();
                 shop.get(i).setName(newName);
                 System.out.println("Новое имя: " + newName);
                 System.out.println("Введите новый тип: ");
@@ -74,9 +74,9 @@ public class Shop {
                 shop.get(i).setType(newType);
                 System.out.println("Изменённый товар: " + newName + ".Тип: " + newType);
             }
-            }
-        if(!edit){
+        }
+        if (!edit) {
             throw new InvalidProductId("Товара с таким id не существует");
         }
-        }
     }
+}
