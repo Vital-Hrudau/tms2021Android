@@ -1,8 +1,8 @@
 public class Product {
-    int id;
-    String name;
-    String type;
-    int price;
+    private int id;
+    private String name;
+    private String type;
+    private int price;
 
     public Product(int id, String name, String type, int price) {
         this.id = id;

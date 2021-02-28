@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Shop {
+
     List<Product> shop = new LinkedList<>();
-    Scanner scanner = new Scanner(System.in);
 
     public List<Product> getShop() {
         return shop;
@@ -14,7 +14,15 @@ public class Shop {
     public void sortPrice(Shop shop) {
         List<Product> sortListPrice = new LinkedList<>(shop.getShop());
         sortListPrice.sort(Comparator.comparing(Product::getPrice).reversed());
-        System.out.println("Список всех товаров, сортированный по цене:");
+        System.out.println("Список всех товаров, сортированный по убыванию цены:");
+        for (Product item : sortListPrice) {
+            System.out.println(item.getName() + ". Цена: " + item.getPrice());
+        }
+    }
+    public void sortPriceNonReversed(Shop shop) {
+        List<Product> sortListPrice = new LinkedList<>(shop.getShop());
+        sortListPrice.sort(Comparator.comparing(Product::getPrice));
+        System.out.println("Список всех товаров, сортированный по возрастанию цены:");
         for (Product item : sortListPrice) {
             System.out.println(item.getName() + ". Цена: " + item.getPrice());
         }
@@ -31,6 +39,7 @@ public class Shop {
         }
         if (!have) {
             shop.add(0, product);
+            System.out.println("Добавлен товар: " + product.getName());
         }
     }
 
@@ -60,19 +69,13 @@ public class Shop {
     public void editProduct(Product p) throws InvalidProductId {
         boolean edit = false;
         for (int i = 0; i < shop.size(); i++) {
-            if (shop.get(i) == p) {
+            if (shop.get(i).getId() == p.getId()) {
                 edit = true;
-                String name = shop.get(i).getName();
-                String type = shop.get(i).getType();
-                System.out.println("Искомый товар: " + name + ".Тип: " + type);
-                System.out.println("Введите новое название: ");
-                String newName = scanner.nextLine();
-                shop.get(i).setName(newName);
-                System.out.println("Новое имя: " + newName);
-                System.out.println("Введите новый тип: ");
-                String newType = scanner.nextLine();
-                shop.get(i).setType(newType);
-                System.out.println("Изменённый товар: " + newName + ".Тип: " + newType);
+                shop.get(i).setName(p.getName());
+                shop.get(i).setType(p.getType());
+                shop.get(i).setPrice(p.getPrice());
+                System.out.println("Изменённый товар: " + shop.get(i).getName() + ".Тип: " + shop.get(i).getType() +
+                        ".Цена: " + shop.get(i).getPrice());
             }
         }
         if (!edit) {
