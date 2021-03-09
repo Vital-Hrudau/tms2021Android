@@ -1,21 +1,32 @@
 import java.util.Scanner;
 
 public class Application {
-    private Shop shop = new Shop();
+    private Shop shop;
 
-    public Shop getShop() {
-        return shop;
+    Economics economics = new Economics(shop);
+
+    public Application(Shop shop) {
+        this.shop = shop;
     }
 
-    public void Start() throws ProductAlreadyExist, InvalidProductId {
 
+    public void start() throws ProductAlreadyExist, InvalidProductId {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите действие (Вывод всех товаров," +
-                " Добавление товара, Удаление товара, Редактирование товара, Выход):");
-        String console = scanner.nextLine();
-
+        String console = "";
         do {
-            if (console.equals("Вывод всех товаров") || console.equals("Вывод")) {
+            System.out.println("Выберите действие (Загрузить товар (1), Вывод всех товаров (2)," +
+                    " Добавление товара (3), Купить товар (4), Удаление товара (5) \nРедактирование товара (6)," +
+                    " Бухгалтерия (0), Выход):");
+            console = scanner.nextLine();
+            if (console.equals("Загрузить") || console.equals("1")) {
+                System.out.println("Введите id товара: ");
+                int id = scanner.nextInt();
+                System.out.println("Введите кол-во товара: ");
+                int count = scanner.nextInt();
+                shop.addCountProduct(id, count);
+            }
+
+            if (console.equals("Вывод всех товаров") || console.equals("2")) {
                 System.out.println("В какой сортировке вывести? (По цене или По добавлению)");
                 String sort = scanner.nextLine();
                 if (sort.equals("По цене")) {
@@ -33,10 +44,9 @@ public class Application {
                 if (sort.equals("По добавлению")) {
                     shop.showAllProducts(shop);
                 }
-                Start();
             }
 
-            if (console.equals("Добавление товара") || console.equals("Добавление")) {
+            if (console.equals("Добавление товара") || console.equals("3")) {
                 System.out.println("Введите id товара: ");
                 int id = scanner.nextInt();
                 System.out.println("Введите название товара: ");
@@ -49,16 +59,24 @@ public class Application {
 
                 Product newProduct = new Product(id, name, type, price);
                 shop.addProduct(newProduct);
-                Start();
             }
 
-            if (console.equals("Удаление товара") || console.equals("Удаление")) {
+
+            if (console.equals("Купить") || console.equals("4")) {
+                System.out.println("Введите id товара: ");
+                int id = scanner.nextInt();
+                System.out.println("Введите кол-во товара: ");
+                int count = scanner.nextInt();
+                shop.buyCountProduct(id, count);
+            }
+
+            if (console.equals("Удаление товара") || console.equals("5")) {
                 System.out.println("Введите id товара, который хотите удалить: ");
                 int id = scanner.nextInt();
                 shop.removeProduct(id);
-                Start();
             }
-            if (console.equals("Редактирование товара") || console.equals("Редактирование")) {
+
+            if (console.equals("Редактирование товара") || console.equals("6")) {
                 System.out.println("Введите id товара, который хотите отредактировать: ");
                 int id = scanner.nextInt();
                 System.out.println("Введите новое название товара: ");
@@ -71,11 +89,18 @@ public class Application {
 
                 Product newProduct = new Product(id, name, type, price);
                 shop.editProduct(newProduct);
-                Start();
+
+            }
+
+            if (console.equals("Бухгалтерия") || console.equals("0")) {
+                System.out.println("Отчет бухгалтерии:");
+                economics.amountProductTypes(shop);
+                economics.amountCountProduct(shop);
+                economics.averageCost(shop);
+                economics.averageCostofTypes(shop);
+
             }
         } while (!console.equals("Выход"));
 
     }
-
-
 }
